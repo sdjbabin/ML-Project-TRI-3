@@ -2,11 +2,7 @@
 
 ![image](https://github.com/sdjbabin/ML-Project-TRI-3/assets/137878044/015cef75-13fe-4177-be53-1779313ffa5b)
 
-**GitHub README File: Comprehensive Analysis of Astronomical Data**
-
----
-
-# Comprehensive Analysis of Astronomical Data
+**AstroML: A study on Machine Learning tools for analyzing Astronomical Data**
 
 This repository contains code and documentation for a comprehensive analysis of astronomical data, focusing on the classification of stars and galaxies using various machine learning and data analysis techniques. The analysis covers three main areas: stellar classification, star clustering, and galaxy morphological classification.
 
@@ -43,30 +39,54 @@ This section focuses on classifying galaxy images into predefined morphological 
 4. **Performance Enhancement**: Techniques such as data augmentation and dimensionality reduction (PCA) were applied.
 5. **Evaluation**: Classification accuracy and performance metrics were analyzed.
 
-## Repository Structure
-- **/stellar_classification**: Code and documentation for stellar classification analysis.
-- **/star_clustering**: Code and documentation for star clustering analysis.
-- **/galaxy_classification**: Code and documentation for galaxy morphological classification analysis.
-- **/data**: Dataset files used in the analysis.
-- **/images**: Images and visualizations generated during the analysis.
-- **README.md**: Main README file providing an overview of the repository.
+## CNN on Space Images
+## Overview
+The Galaxy10 dataset is aimed at classifying images of galaxies into one of ten distinct shapes, including various disk orientations and smooth shapes with different characteristics. Traditional approaches in object recognition typically use feature descriptors to compress image properties into smaller vectors, which are then utilized as features for machine learning models. This study demonstrates the application of this pipeline on the Galaxy10 dataset using Histogram of Oriented Gradients (HOG) as a feature descriptor, a popular method in computer vision for object detection and classification.
 
-## Requirements
-- Python 3.x
-- Libraries: numpy, pandas, scikit-learn, matplotlib, seaborn, xgboost, torch, torchvision
+### Methodology
+1. **Feature Extraction with HOG**: 
+   - Histogram of Oriented Gradients (HOG) is applied to extract features from galaxy images. This method computes gradients' magnitudes and orientations in localized portions of the image, providing a compact representation of the image's texture and shape.
+   
+2. **Neural Network Architecture**:
+   - The architecture consists of a MultiLayer Perceptron (MLP) built using PyTorch's Sequential API.
+   - The MLP is designed with multiple layers including Linear (fully connected) layers and non-linear activation functions (e.g., ReLU).
+   - The network learns to approximate complex functions and capture non-linear relationships within the data, enabling effective classification of galaxy shapes.
 
-## Usage
-1. Clone the repository.
-2. Navigate to the desired analysis directory.
-3. Run the Jupyter notebooks or Python scripts to reproduce the analysis.
+3. **Training and Evaluation**:
+   - The network is trained on the Galaxy10 dataset, with images represented by their HOG descriptors.
+   - Training involves optimizing the network's parameters using techniques like stochastic gradient descent (SGD) or Adam optimization.
+   - Model performance is evaluated on a separate validation set to assess its accuracy in classifying galaxy shapes.
+
+### Results
+- **Initial Accuracy**: 
+   - The initial accuracy of the model before applying Principal Component Analysis (PCA) was 77%.
+
+- **Accuracy Improvement with PCA**:
+   - PCA was applied to further improve the accuracy, resulting in an increase from 77% to 80%.
+   - 
+### Usage
+1. **Setup**:
+   - Install necessary dependencies (PyTorch, scikit-learn, etc.).
+   - Download or prepare the Galaxy10 dataset.
+
+2. **Feature Extraction**:
+   - Extract HOG descriptors from galaxy images using the provided scripts in src/.
+   
+3. **Model Training**:
+   - Train the MLP model using PyTorch's Sequential API with the extracted HOG features.
+   
+4. **Evaluation**:
+   - Evaluate the trained model on the validation set to measure accuracy.
+
+5. **PCA Application**:
+   - Apply PCA to further enhance accuracy if desired.
+  
+### Steps
+1. **Data Preparation**: Data from popular star clusters such as NGC 188 and M67 were used.
+2. **Clustering Methods**: K-means, Agglomerative Hierarchical, and DBSCAN clustering algorithms were applied.
+3. **Evaluation**: Clustering results were evaluated based on separation of known star clusters and noise identification.
 
 ## Contributors
-- John Doe (@johndoe)
-- Jane Smith (@janesmith)
+- Ritwika Das Gupta
+- Soham Chatterjee
 
-## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-Feel free to customize and expand upon this README file to suit your project's specific details and requirements.
